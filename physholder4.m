@@ -72,7 +72,7 @@ function [pt,pt3] = physholder4(thetaBd)
 
     pt(1,:)  = [origin(1)+0, origin(2)-y1];        % Peak point.
     pt(2,:)  = [pt(1,1)-x, pt(1,2)-h];     % Base/Left point.
-    theta2a  = ang2(pt, 1, 2); %atan2(pt(1,2)-pt(2,2), pt(1,1)-pt(2,1)); %ang3(pt3,23,2,1);   
+    theta2a  = ang2(pt, 1, 2);
     theta2b  = ang3(pt3,1,2,3);
     theta2c  = theta2a+theta2b-pi/2;
 
@@ -99,10 +99,10 @@ function [pt,pt3] = physholder4(thetaBd)
     pt(18,:) = [pt(17,1)+(wall)*sin(theta2c), pt(17,2)-(wall)*cos(theta2c)];    % Bracket.
     pt(19,:) = [pt(10,1)+(wall)*sin(theta2c), pt(10,2)-(wall)*cos(theta2c)];    % Bracket.
 
-    theta13 = ang2(pt, 3, 1); %atan2(pt(3,2)-pt(1,2), pt(3,1)-pt(1,1));
+    theta13 = ang2(pt, 3, 1);
     pt(20,:) = [pt(1,1)+cos(theta13)*hole/2, pt(1,2)+sin(theta13)*hole/2];
     
-    theta23 = ang2(pt, 3, 2); %atan2(pt(3,2)-pt(2,2), pt(3,1)-pt(2,1));
+    theta23 = ang2(pt, 3, 2);
     pt(21,:) = [pt(20,1)-cos(theta23), pt(20,2)-sin(theta23)];
     [x,y] = intersectionof(pt, 1, 2, 20, 21);
     pt(21,:) = [x,y];
